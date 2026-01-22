@@ -151,4 +151,8 @@ class Database:
         try:
             return self.scheduled_posts.delete_one({"_id": post_id})
         except Exception as e:
-            logger.error(f
+            logger.error(f"Error deleting scheduled post: {e}")
+            return None
+
+# Global database instance
+db = Database()
